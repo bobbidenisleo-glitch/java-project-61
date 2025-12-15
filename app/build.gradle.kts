@@ -1,7 +1,8 @@
 plugins {
-    java
+    // Плагин application автоматически подключает java
     application
-    // Подключаем плагин для проверки версий
+    
+    // Плагин для проверки версий
     id("com.github.ben-manes.versions") version "0.53.0"
 }
 
