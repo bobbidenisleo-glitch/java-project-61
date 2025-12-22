@@ -1,6 +1,12 @@
-# Gradle
+# Gradle временные файлы
 .gradle
 build/
+*.class
+
+# NOTE: НЕ исключаем эти важные файлы:
+# !gradle/wrapper/gradle-wrapper.jar  - этот файл ДОЛЖЕН быть в репозитории
+# !gradlew                           - этот файл ДОЛЖЕН быть в репозитории
+# !gradlew.bat                       - этот файл ДОЛЖЕН быть в репозитории
 
 # IDE
 .idea/
