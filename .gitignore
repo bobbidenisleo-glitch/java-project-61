@@ -1,19 +1,33 @@
 # Gradle
-.gradle/
+.gradle
 build/
-!gradle/wrapper/gradle-wrapper.jar
+out/
+bin/
+*.class
+*.jar
+*.war
+*.tar
+*.zip
 
-# IDEA
+# IDE
 .idea/
 *.iml
 *.ipr
 *.iws
+.vscode/
 
-# Mac
+# System
 .DS_Store
-
-# Logs
-*.log
-
-# OS
 Thumbs.db
+desktop.ini
+
+# Project reports
+reports/
+test-results/
+*.html
+*.xml
+*.bin
+
+# Local configuration
+*.properties
+*.log
