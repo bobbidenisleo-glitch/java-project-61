@@ -1,0 +1,22 @@
+# Build
+build/
+out/
+*.class
+*.jar
+
+# Gradle
+.gradle/
+gradle.properties
+
+# IDE
+.idea/
+*.iml
+
+# System
+.DS_Store
+Thumbs.db
+
+# Project
+*.cast
+.sonar/
+:sonar
