@@ -1,4 +1,3 @@
-# Exclude only truly temporary/local files
 .gradle
 .idea
 *.iml

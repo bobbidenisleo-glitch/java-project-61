@@ -1,33 +1,10 @@
 # Gradle
 .gradle
 build/
-out/
-bin/
-*.class
-*.jar
-*.war
-*.tar
-*.zip
 
 # IDE
 .idea/
 *.iml
-*.ipr
-*.iws
-.vscode/
 
 # System
 .DS_Store
-Thumbs.db
-desktop.ini
-
-# Project reports
-reports/
-test-results/
-*.html
-*.xml
-*.bin
-
-# Local configuration
-*.properties
-*.log
