@@ -1,40 +1,7 @@
-#!/usr/bin/env sh
-#
-# Copyright 2015 the original author or authors.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      https://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-##############################################################################
-## NOTE: This file is generated from a template. Do not edit directly.
-##############################################################################
-# Use /dev/null for NUL on Unix and NUL on Windows
-NUL="/dev/null"
-case "$(uname -s)" in
-  CYGWIN*) NUL="NUL" ;;
-  MINGW*) NUL="NUL" ;;
-  MSYS*) NUL="NUL" ;;
-esac
-# Determine command line arguments
-GRADLE_OPTS="$GRADLE_OPTS -Dorg.gradle.appname=gradlew"
-# Collect all arguments in a single variable
-ALL_ARGS="$@"
-# For Cygwin or MSYS, switch paths to Windows format before running java
-if [ "$(uname -o 2>/dev/null || echo "Unknown")" = "Cygwin" ] || [ "$(uname -o 2>/dev/null || echo "Unknown")" = "Msys" ]; then
-  CLASSPATH=$(cygpath --path --windows "$CLASSPATH")
-fi
-# Execute Gradle
-exec "$JAVACMD" $GRADLE_OPTS \
-  -classpath "$CLASSPATH" \
-  -Dgradle.user.home="$GRADLE_USER_HOME" \
-  org.gradle.wrapper.GradleWrapperMain \
-  "$ALL_ARGS"
+#!/usr/bin/env bash
+
+# Simple gradle wrapper
+JAVA_HOME="${JAVA_HOME:-/usr/lib/jvm/java-21-openjdk-amd64}"
+exec "$JAVA_HOME/bin/java" \
+    -jar "$(dirname "$0")/gradle/wrapper/gradle-wrapper.jar" \
+    "$@"
