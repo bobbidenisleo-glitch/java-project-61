@@ -1,16 +1,4 @@
-.PHONY: build test clean install
-
-build:
-	./gradlew build
-
-test:
-	./gradlew test
-
-clean:
-	./gradlew clean
-
-install:
-	./gradlew install
+.PHONY: setup
 
 setup:
-	./gradlew clean install
+	cd code/app && ./gradlew clean install
