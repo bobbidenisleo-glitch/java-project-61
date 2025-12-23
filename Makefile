@@ -1,16 +1,19 @@
-.PHONY: run-dist
+.PHONY: run-dist setup build test clean install
 
 run-dist:
-	./app/build/install/app/bin/app
+	./code/app/build/install/app/bin/app
+
+setup:
+	cd code/app && ./gradlew clean install
 
 build:
-	cd app && ./gradlew build
+	cd code/app && ./gradlew build
 
 test:
-	cd app && ./gradlew test
+	cd code/app && ./gradlew test
 
 clean:
-	cd app && ./gradlew clean
+	cd code/app && ./gradlew clean
 
 install:
-	cd app && ./gradlew install
+	cd code/app && ./gradlew install
