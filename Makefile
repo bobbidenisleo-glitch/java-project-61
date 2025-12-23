@@ -1,4 +1,4 @@
-.PHONY: build test
+.PHONY: build test clean install
 
 build:
 	./gradlew build
@@ -6,11 +6,11 @@ build:
 test:
 	./gradlew test
 
-install:
-	./gradlew install
-
 clean:
 	./gradlew clean
+
+install:
+	./gradlew install
 
 setup:
 	./gradlew clean install
