@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import java.util.Random;
 
 /**
@@ -18,34 +19,34 @@ public final class Progression {
     private static final int MAX_STEP = 10;
 
     /**
-     * Возвращает правила игры.
-     * @return правила
+     * Запускает игру.
      */
-    public static String getRules() {
-        return "What number is missing in the progression?";
+    public static void startGame() {
+        String rule = "What number is missing in the progression?";
+        String[][] questionsAndAnswers = generateQuestionsAndAnswers();
+        Engine.run(rule, questionsAndAnswers);
     }
 
     /**
      * Генерирует вопросы и ответы для игры.
      * @return массив вопросов и ответов
      */
-    public static String[][] getQuestionsAndAnswers() {
+    private static String[][] generateQuestionsAndAnswers() {
         Random random = new Random();
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            // Генерируем параметры прогрессии
             int length = MIN_LENGTH + random.nextInt(MAX_LENGTH - MIN_LENGTH + 1);
-            int start = random.nextInt(MAX_START) + 1; // от 1 до 20
-            int step = random.nextInt(MAX_STEP) + 1;   // от 1 до 10
-            int hiddenIndex = random.nextInt(length);  // позиция скрытого элемента
+            int start = random.nextInt(MAX_START) + 1;
+            int step = random.nextInt(MAX_STEP) + 1;
+            int hiddenIndex = random.nextInt(length);
 
-            // Создаём прогрессию
-            int[] progression = generateProgression(start, step, length);
+            // СОЗДАЁМ ПРОГРЕССИЮ КАК МАССИВ СТРОК (четвёртое замечание)
+            String[] progression = generateProgression(start, step, length);
+            String answer = progression[hiddenIndex];
+            progression[hiddenIndex] = "..";
             
-            // Формируем вопрос со скрытым элементом
-            String question = buildQuestion(progression, hiddenIndex);
-            String answer = Integer.toString(progression[hiddenIndex]);
+            String question = String.join(" ", progression);
 
             questionsAndAnswers[i][0] = question;
             questionsAndAnswers[i][1] = answer;
@@ -55,43 +56,18 @@ public final class Progression {
     }
 
     /**
-     * Генерирует арифметическую прогрессию.
-     * @param start первый элемент
+     * Генерирует арифметическую прогрессию как массив строк.
+     * @param start начальный элемент
      * @param step шаг прогрессии
      * @param length длина прогрессии
-     * @return массив с прогрессией
+     * @return массив строк, представляющих прогрессию
      */
-    private static int[] generateProgression(final int start, final int step, final int length) {
-        int[] progression = new int[length];
+    private static String[] generateProgression(final int start, final int step, final int length) {
+        String[] progression = new String[length];
         for (int i = 0; i < length; i++) {
-            progression[i] = start + i * step;
+            progression[i] = Integer.toString(start + i * step);
         }
         return progression;
-    }
-
-    /**
-     * Строит строку вопроса со скрытым элементом.
-     * @param progression массив прогрессии
-     * @param hiddenIndex индекс скрытого элемента
-     * @return строка вопроса
-     */
-    private static String buildQuestion(final int[] progression, final int hiddenIndex) {
-        StringBuilder question = new StringBuilder();
-        
-        for (int i = 0; i < progression.length; i++) {
-            if (i == hiddenIndex) {
-                question.append("..");
-            } else {
-                question.append(progression[i]);
-            }
-            
-            // Добавляем пробел, кроме последнего элемента
-            if (i < progression.length - 1) {
-                question.append(" ");
-            }
-        }
-        
-        return question.toString();
     }
 
     /** Приватный конструктор. */

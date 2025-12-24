@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import java.util.Random;
 
 /**
@@ -9,31 +10,34 @@ public final class Calculator {
     /** Количество раундов. */
     private static final int ROUNDS_COUNT = 3;
     /** Максимальное число. */
-    private static final int MAX_NUMBER = 20;
+    private static final int MAX_NUMBER = 100;
+    /** Операции. */
+    private static final String[] OPERATIONS = {"+", "-", "*"};
 
     /**
-     * Возвращает правила игры.
-     * @return правила
+     * Запускает игру.
      */
-    public static String getRules() {
-        return "What is the result of the expression?";
+    public static void startGame() {
+        String rule = "What is the result of the expression?";
+        String[][] questionsAndAnswers = generateQuestionsAndAnswers();
+        Engine.run(rule, questionsAndAnswers);
     }
 
     /**
      * Генерирует вопросы и ответы для игры.
      * @return массив вопросов и ответов
      */
-    public static String[][] getQuestionsAndAnswers() {
+    private static String[][] generateQuestionsAndAnswers() {
         Random random = new Random();
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            int num1 = random.nextInt(MAX_NUMBER) + 1;
-            int num2 = random.nextInt(MAX_NUMBER) + 1;
-            char operator = generateRandomOperator(random);
+            int a = random.nextInt(MAX_NUMBER) + 1;
+            int b = random.nextInt(MAX_NUMBER) + 1;
+            String operation = OPERATIONS[random.nextInt(OPERATIONS.length)];
 
-            String question = num1 + " " + operator + " " + num2;
-            String answer = Integer.toString(calculate(num1, num2, operator));
+            String question = a + " " + operation + " " + b;
+            String answer = Integer.toString(calculate(a, b, operation));
 
             questionsAndAnswers[i][0] = question;
             questionsAndAnswers[i][1] = answer;
@@ -43,32 +47,22 @@ public final class Calculator {
     }
 
     /**
-     * Генерирует случайный оператор.
-     * @param random генератор случайных чисел
-     * @return оператор (+, - или *)
-     */
-    private static char generateRandomOperator(final Random random) {
-        char[] operators = {'+', '-', '*'};
-        return operators[random.nextInt(operators.length)];
-    }
-
-    /**
-     * Вычисляет результат выражения.
+     * Вычисляет результат операции.
      * @param a первое число
      * @param b второе число
-     * @param operator оператор
+     * @param operation операция (+, -, *)
      * @return результат вычисления
      */
-    private static int calculate(final int a, final int b, final char operator) {
-        switch (operator) {
-            case '+':
+    private static int calculate(final int a, final int b, final String operation) {
+        switch (operation) {
+            case "+":
                 return a + b;
-            case '-':
+            case "-":
                 return a - b;
-            case '*':
+            case "*":
                 return a * b;
             default:
-                throw new IllegalArgumentException("Unknown operator: " + operator);
+                throw new IllegalArgumentException("Unknown operation: " + operation);
         }
     }
 

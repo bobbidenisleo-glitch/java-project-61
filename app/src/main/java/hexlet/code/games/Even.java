@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import java.util.Random;
 
 /**
@@ -12,18 +13,19 @@ public final class Even {
     private static final int MAX_NUMBER = 100;
 
     /**
-     * Возвращает правила игры.
-     * @return правила
+     * Запускает игру.
      */
-    public static String getRules() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static void startGame() {
+        String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String[][] questionsAndAnswers = generateQuestionsAndAnswers();
+        Engine.run(rule, questionsAndAnswers);
     }
 
     /**
      * Генерирует вопросы и ответы для игры.
      * @return массив вопросов и ответов
      */
-    public static String[][] getQuestionsAndAnswers() {
+    private static String[][] generateQuestionsAndAnswers() {
         Random random = new Random();
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 

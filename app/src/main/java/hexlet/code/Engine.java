@@ -17,13 +17,9 @@ public final class Engine {
      */
     public static void run(final String rules, final String[][] questionsAndAnswers) {
         Scanner scanner = new Scanner(System.in);
-
-        // Приветствие
-        System.out.println("\nWelcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        String name = scanner.nextLine();
-        System.out.println("Hello, " + name + "!");
-
+        
+        String name = Cli.greet();
+        
         // Правила конкретной игры
         System.out.println(rules);
 
@@ -43,14 +39,12 @@ public final class Engine {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. "
                     + "Correct answer was '" + correctAnswer + "'");
                 System.out.println("Let's try again, " + name + "!");
-                scanner.close();
                 return;
             }
         }
 
         // Победа
         System.out.println("Congratulations, " + name + "!");
-        scanner.close();
     }
 
     /** Приватный конструктор. */

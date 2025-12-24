@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import java.util.Random;
 
 /**
@@ -10,32 +11,30 @@ public final class Prime {
     private static final int ROUNDS_COUNT = 3;
     /** Максимальное число. */
     private static final int MAX_NUMBER = 100;
-    /** Минимальное число (простые числа начинаются с 2). */
-    private static final int MIN_NUMBER = 2;
 
     /**
-     * Возвращает правила игры.
-     * @return правила
+     * Запускает игру.
      */
-    public static String getRules() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static void startGame() {
+        String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        String[][] questionsAndAnswers = generateQuestionsAndAnswers();
+        Engine.run(rule, questionsAndAnswers);
     }
 
     /**
      * Генерирует вопросы и ответы для игры.
      * @return массив вопросов и ответов
      */
-    public static String[][] getQuestionsAndAnswers() {
+    private static String[][] generateQuestionsAndAnswers() {
         Random random = new Random();
         String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
 
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-            int number = MIN_NUMBER + random.nextInt(MAX_NUMBER - MIN_NUMBER + 1);
-            
-            boolean isPrime = isPrime(number);
-            String answer = isPrime ? "yes" : "no";
+            int number = random.nextInt(MAX_NUMBER) + 1;
+            String question = Integer.toString(number);
+            String answer = isPrime(number) ? "yes" : "no";
 
-            questionsAndAnswers[i][0] = Integer.toString(number);
+            questionsAndAnswers[i][0] = question;
             questionsAndAnswers[i][1] = answer;
         }
 
@@ -51,15 +50,12 @@ public final class Prime {
         if (number < 2) {
             return false;
         }
-        
-        // Проверяем делители от 2 до квадратного корня из number
-        for (int i = 2; i * i <= number; i++) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
-                return false; // Нашли делитель - число составное
+                return false;
             }
         }
-        
-        return true; // Делителей не найдено - число простое
+        return true;
     }
 
     /** Приватный конструктор. */
