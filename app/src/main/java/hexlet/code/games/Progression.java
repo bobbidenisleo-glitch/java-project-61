@@ -45,7 +45,7 @@ public final class Progression {
             String[] progression = generateProgression(start, step, length);
             String answer = progression[hiddenIndex];
             progression[hiddenIndex] = "..";
-            
+
             String question = String.join(" ", progression);
 
             questionsAndAnswers[i][0] = question;

@@ -17,9 +17,9 @@ public final class Engine {
      */
     public static void run(final String rules, final String[][] questionsAndAnswers) {
         Scanner scanner = new Scanner(System.in);
-        
+
         String name = Cli.greet();
-        
+
         // Правила конкретной игры
         System.out.println(rules);
 
