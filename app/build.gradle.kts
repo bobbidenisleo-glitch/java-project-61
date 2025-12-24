@@ -1,24 +1,29 @@
 plugins {
+    java
     application
 }
 
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
+application {
+    mainClass = "hexlet.code.App"
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
+    // В первом проекте тесты не используются - зависимости удалены
 }
 
 tasks.test {
     useJUnitPlatform()
 }
 
-application {
-    mainClass = "hexlet.code.App"
+tasks.compileJava {
+    options.release = 21
 }
 
 tasks.getByName("run", JavaExec::class) {
