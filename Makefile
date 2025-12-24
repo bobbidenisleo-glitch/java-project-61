@@ -1,7 +1,7 @@
 .PHONY: setup run-dist
 
 setup:
-	cd code/app && ./gradlew clean install
+	cd app && ./gradlew clean install
 
 run-dist:
-	./code/app/build/install/app/bin/app
+	./app/build/install/app/bin/app
