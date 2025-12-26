@@ -7,8 +7,6 @@ import java.util.Random;
  * Игра "Наибольший общий делитель (НОД)".
  */
 public final class Gcd {
-    /** Количество раундов. */
-    /** Максимальное число. */
     private static final int MAX_NUMBER = 100;
 
     /**
@@ -59,7 +57,6 @@ public final class Gcd {
         return x;
     }
 
-    /** Приватный конструктор. */
     private Gcd() {
     }
 }

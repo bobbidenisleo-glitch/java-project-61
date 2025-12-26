@@ -7,10 +7,7 @@ import java.util.Random;
  * Игра "Калькулятор".
  */
 public final class Calculator {
-    /** Количество раундов. */
-    /** Максимальное число. */
     private static final int MAX_NUMBER = 100;
-    /** Операции. */
     private static final String[] OPERATIONS = {"+", "-", "*"};
 
     /**
@@ -65,7 +62,6 @@ public final class Calculator {
         }
     }
 
-    /** Приватный конструктор. */
     private Calculator() {
     }
 }

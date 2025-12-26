@@ -7,8 +7,6 @@ import java.util.Random;
  * Игра "Простое ли число?".
  */
 public final class Prime {
-    /** Количество раундов. */
-    /** Максимальное число. */
     private static final int MAX_NUMBER = 100;
 
     /**
@@ -57,7 +55,6 @@ public final class Prime {
         return true;
     }
 
-    /** Приватный конструктор. */
     private Prime() {
     }
 }

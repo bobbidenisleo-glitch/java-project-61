@@ -7,8 +7,6 @@ import java.util.Random;
  * Игра "Проверка на чётность".
  */
 public final class Even {
-    /** Количество раундов. */
-    /** Максимальное число. */
     private static final int MAX_NUMBER = 100;
 
     /**
@@ -49,7 +47,6 @@ public final class Even {
         return number % 2 == 0;
     }
 
-    /** Приватный конструктор. */
     private Even() {
     }
 }

@@ -7,14 +7,9 @@ import java.util.Random;
  * Игра "Арифметическая прогрессия".
  */
 public final class Progression {
-    /** Количество раундов. */
-    /** Минимальная длина прогрессии. */
     private static final int MIN_LENGTH = 5;
-    /** Максимальная длина прогрессии. */
     private static final int MAX_LENGTH = 10;
-    /** Максимальный начальный элемент. */
     private static final int MAX_START = 20;
-    /** Максимальный шаг прогрессии. */
     private static final int MAX_STEP = 10;
 
     /**
@@ -69,7 +64,6 @@ public final class Progression {
         return progression;
     }
 
-    /** Приватный конструктор. */
     private Progression() {
     }
 }
