@@ -7,3 +7,5 @@ build/
 *.tar
 *.zip
 .DS_Store
+.gradle/
+.timestamp-*

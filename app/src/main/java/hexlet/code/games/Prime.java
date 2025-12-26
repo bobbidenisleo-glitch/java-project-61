@@ -8,7 +8,6 @@ import java.util.Random;
  */
 public final class Prime {
     /** Количество раундов. */
-    private static final int ROUNDS_COUNT = 3;
     /** Максимальное число. */
     private static final int MAX_NUMBER = 100;
 
@@ -27,9 +26,9 @@ public final class Prime {
      */
     private static String[][] generateQuestionsAndAnswers() {
         Random random = new Random();
-        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             int number = random.nextInt(MAX_NUMBER) + 1;
             String question = Integer.toString(number);
             String answer = isPrime(number) ? "yes" : "no";

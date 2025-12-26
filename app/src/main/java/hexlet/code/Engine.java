@@ -8,8 +8,7 @@ import java.util.Scanner;
  */
 public final class Engine {
     /** Количество раундов для победы. */
-    private static final int ROUNDS_TO_WIN = 3;
-
+public static final int ROUNDS = 3;
     /**
      * Запускает игру.
      * @param rules правила игры
@@ -24,10 +23,9 @@ public final class Engine {
         System.out.println(rules);
 
         // Основной цикл игры
-        for (int i = 0; i < ROUNDS_TO_WIN; i++) {
-            String question = questionsAndAnswers[i][0];
-            String correctAnswer = questionsAndAnswers[i][1];
-
+            for (String[] round : questionsAndAnswers) {
+            String question = round[0];
+            String correctAnswer = round[1];
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
             String userAnswer = scanner.nextLine().trim();
@@ -51,3 +49,4 @@ public final class Engine {
     private Engine() {
     }
 }
+

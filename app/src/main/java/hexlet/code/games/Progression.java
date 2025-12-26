@@ -8,7 +8,6 @@ import java.util.Random;
  */
 public final class Progression {
     /** Количество раундов. */
-    private static final int ROUNDS_COUNT = 3;
     /** Минимальная длина прогрессии. */
     private static final int MIN_LENGTH = 5;
     /** Максимальная длина прогрессии. */
@@ -33,9 +32,9 @@ public final class Progression {
      */
     private static String[][] generateQuestionsAndAnswers() {
         Random random = new Random();
-        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             int length = MIN_LENGTH + random.nextInt(MAX_LENGTH - MIN_LENGTH + 1);
             int start = random.nextInt(MAX_START) + 1;
             int step = random.nextInt(MAX_STEP) + 1;

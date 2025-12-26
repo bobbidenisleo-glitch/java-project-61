@@ -8,7 +8,6 @@ import java.util.Random;
  */
 public final class Calculator {
     /** Количество раундов. */
-    private static final int ROUNDS_COUNT = 3;
     /** Максимальное число. */
     private static final int MAX_NUMBER = 100;
     /** Операции. */
@@ -29,9 +28,9 @@ public final class Calculator {
      */
     private static String[][] generateQuestionsAndAnswers() {
         Random random = new Random();
-        String[][] questionsAndAnswers = new String[ROUNDS_COUNT][2];
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS][2];
 
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
+        for (int i = 0; i < Engine.ROUNDS; i++) {
             int a = random.nextInt(MAX_NUMBER) + 1;
             int b = random.nextInt(MAX_NUMBER) + 1;
             String operation = OPERATIONS[random.nextInt(OPERATIONS.length)];
