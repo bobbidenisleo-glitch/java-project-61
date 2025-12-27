@@ -1,5 +1,5 @@
-[![GitHub Actions](https://github.com/bobbidenisleo-glitch/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/bobbidenisleo-glitch/java-project-61/actions)
-[![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=bobbidenisleo-glitch_java-project-61&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=bobbidenisleo-glitch_java-project-61)
+[![hexlet-check](https://github.com/bobbidenisleo-glitch/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/bobbidenisleo-glitch/java-project-61/actions/workflows/hexlet-check.yml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/.../maintainability)](https://codeclimate.com/github/bobbidenisleo-glitch/java-project-61/maintainability)
 
 # Brain Games
 
