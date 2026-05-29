@@ -1,5 +1,4 @@
 plugins {
-    java
     application
 }
 
@@ -12,14 +11,6 @@ application {
 
 repositories {
     mavenCentral()
-}
-
-dependencies {
-    // В первом проекте тесты не используются - зависимости удалены
-}
-
-tasks.test {
-    useJUnitPlatform()
 }
 
 tasks.compileJava {
